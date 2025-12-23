@@ -13,11 +13,11 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set Preferred Editor
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
+export EDITOR='vim'
+
+# Automatically cd when command is unknown but recognized as a valid directory
+# Allows omitting 'cd' when navigating, e.g. just type '/some/dir' or use Alt-C (fzf)
+setopt auto_cd
 
 # =============================================================================
 # 2. OH-MY-ZSH SETTINGS
@@ -50,6 +50,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias l='ls -alhF'
 alias c='clear'
+alias a="antigravity"
 
 # =============================================================================
 # 4. KEYBINDINGS & VIM MODE
@@ -77,10 +78,17 @@ bindkey -M vicmd '^[l' autosuggest-accept
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # -- General FZF Options --
+# - height 40%: keeps context visible
+# - layout=reverse: input at top
+# - bind: use alt-j/k for navigation
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --bind 'alt-j:down,alt-k:up'"
 
 # -- File Search (Ctrl+T) --
-# Use 'rg' (Ripgrep) if available
+# Use 'rg' (Ripgrep) if available:
+# - Respects .gitignore
+# - Includes hidden files (e.g. .config)
+# - Follows symlinks
+# - Excludes .git directory
 if command -v rg &> /dev/null; then
     export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -92,6 +100,9 @@ fi
 
 # -- Preview Settings --
 # Show preview with 'bat' or 'batcat' when selecting files
+# - style=numbers: show line numbers
+# - color=always: preserve syntax highlighting
+# - line-range :500: limit to first 500 lines for performance
 if command -v batcat &> /dev/null; then
     _BAT_CMD="batcat"
 elif command -v bat &> /dev/null; then
@@ -120,7 +131,14 @@ function chpwd() {
 chpwd
 
 # =============================================================================
-# 7. FINAL THEME CONFIGURATION
+# 7. EXTERNAL TOOLS
+# =============================================================================
+
+# Source uv/ruff environment if available
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+
+# =============================================================================
+# 8. FINAL THEME CONFIGURATION
 # =============================================================================
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
