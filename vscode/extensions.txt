@@ -1,0 +1,34 @@
+# ============================================
+# VSCode/Antigravity Extensions List
+# ============================================
+# 
+# To export your current extensions, run:
+#   code --list-extensions > extensions.txt
+#   (or: antigravity --list-extensions > extensions.txt)
+#
+# To install all extensions from this list, run:
+#   cat extensions.txt | grep -v '^#' | xargs -L 1 code --install-extension
+#
+# ============================================
+
+# ----- General -----
+# esbenp.prettier-vscode
+# EditorConfig.EditorConfig
+
+# ----- Git -----
+# eamodio.gitlens
+# mhutchie.git-graph
+
+# ----- Theme & Icons -----
+# PKief.material-icon-theme
+# zhuangtongfa.material-theme
+
+# ----- Languages -----
+# ms-python.python
+# ms-python.vscode-pylance
+# dbaeumer.vscode-eslint
+
+# ----- Remote Development -----
+# ms-vscode-remote.remote-wsl
+
+# Add your extensions below (uncomment and customize):

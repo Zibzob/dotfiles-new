@@ -1,0 +1,44 @@
+{
+    // ============================================
+    // EDITOR SETTINGS
+    // Copy this file to your Windows editor config folder:
+    //   - VS Code: %APPDATA%\Code\User\settings.json
+    //   - Antigravity: %APPDATA%\Antigravity\User\settings.json
+    //   - Cursor: %APPDATA%\Cursor\User\settings.json
+    // ============================================
+    // ----- Terminal -----
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "terminal.integrated.fontSize": 14,
+    // ----- Editor -----
+    "editor.fontSize": 14,
+    "editor.fontFamily": "'Fira Code', 'Cascadia Code', Consolas, monospace",
+    "editor.fontLigatures": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.wordWrap": "on",
+    "editor.minimap.enabled": false,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.formatOnSave": true,
+    "editor.linkedEditing": true,
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.smoothScrolling": true,
+    // ----- Files -----
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    // ----- Workbench -----
+    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.startupEditor": "none",
+    "workbench.list.smoothScrolling": true,
+    // ----- Git -----
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    // ----- Telemetry -----
+    "telemetry.telemetryLevel": "off"
+}

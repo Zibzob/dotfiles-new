@@ -51,6 +51,19 @@ alias ...='cd ../..'
 alias l='ls -alhF'
 alias c='clear'
 alias a="antigravity"
+# Uses find to list files and sed to format the output into a tree-like structure:
+# - find . -print: recursively lists all files and directories
+# - s;[^/]*/;|____;g: replaces each directory level with indentation markers
+# - s;____|; |;g: cleans up vertical bars for visual alignment
+# alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+
+# eza: modern ls replacement with git awareness
+# - lt: tree view respecting .gitignore
+# - ll: detailed list view with git status
+if command -v eza &> /dev/null; then
+    alias lt='eza --tree --git-ignore'
+    alias ll='eza -la --git --icons'
+fi
 
 # =============================================================================
 # 4. KEYBINDINGS & VIM MODE

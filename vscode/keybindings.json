@@ -1,0 +1,15 @@
+// ============================================
+// KEYBOARD SHORTCUTS
+// Copy this file to your Windows editor config folder:
+//   - VS Code: %APPDATA%\Code\User\keybindings.json
+//   - Antigravity: %APPDATA%\Antigravity\User\keybindings.json
+//   - Cursor: %APPDATA%\Cursor\User\keybindings.json
+// ============================================
+[
+    // Example: Toggle terminal with Ctrl+`
+    // {
+    //   "key": "ctrl+`",
+    //   "command": "workbench.action.terminal.toggleTerminal"
+    // },
+    // Add your custom keybindings here
+]
