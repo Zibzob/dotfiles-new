@@ -210,6 +210,19 @@ link_file "$DOTFILES/zsh/.zshrc" "$HOME/.zshrc"
 link_file "$DOTFILES/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
 link_file "$DOTFILES/git/.gitconfig" "$HOME/.gitconfig"
 
+# fd-find (faster directory search for Alt+C)
+if command_exists fd || command_exists fdfind; then
+    echo "  ✅ fd is installed."
+else
+    echo "  ⚠️  fd is not installed."
+    read -p "    Install fd-find? (Improves Alt+C directory search) [Y/n] " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]] || [[ -z $REPLY ]]; then
+        sudo apt install -y fd-find
+        echo "  ✅ fd-find installed."
+    fi
+fi
+
 # ============================================
 # Done!
 # ============================================
@@ -229,3 +242,4 @@ echo "  3. Your editor settings are stored in: $DOTFILES/vscode/"
 echo "     Copy them to your Windows editor config folder if needed."
 echo ""
 echo "Enjoy your new shell! 🚀"
+

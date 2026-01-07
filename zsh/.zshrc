@@ -106,10 +106,20 @@ if command -v rg &> /dev/null; then
     export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     
-    # -- Directory Search (Alt+C) --
-    # Use rg to find directories only
-    export FZF_ALT_C_COMMAND='rg --files --null --hidden --follow --glob "!.git/*" --null-separator | xargs -0 dirname | sort -u'
 fi
+
+# -- Directory Search (Alt+C) --
+# Prefer 'fd' (fast) over 'find' (fallback)
+if command -v fdfind &> /dev/null; then
+    export FZF_ALT_C_COMMAND='fdfind --type d --hidden --exclude .git'
+elif command -v fd &> /dev/null; then
+    export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
+else
+    export FZF_ALT_C_COMMAND='find . -type d \( -name .git -o -name node_modules -o -name __pycache__ \) -prune -o -type d -print 2>/dev/null'
+fi
+
+# Preview directory contents when selecting with Alt+C
+export FZF_ALT_C_OPTS="--preview 'ls -la {}'"
 
 # -- Preview Settings --
 # Show preview with 'bat' or 'batcat' when selecting files

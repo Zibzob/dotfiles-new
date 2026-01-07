@@ -3,5 +3,6 @@
 	email = aurelien.febvre@volvo.com
 [credential]
 	helper = store
+	useHttpPath = true
 [init]
 	defaultBranch = main
