@@ -88,7 +88,13 @@ bindkey -M vicmd '^[l' autosuggest-accept
 # =============================================================================
 
 # Source FZF shell integration (keybindings and completion)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Supports both git-based install (~/.fzf.zsh) and apt-based install (/usr/share/doc/fzf/examples/)
+if [ -f ~/.fzf.zsh ]; then
+    source ~/.fzf.zsh
+elif [ -d /usr/share/doc/fzf/examples ]; then
+    source /usr/share/doc/fzf/examples/key-bindings.zsh
+    source /usr/share/doc/fzf/examples/completion.zsh
+fi
 
 # -- General FZF Options --
 # - height 40%: keeps context visible
